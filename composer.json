@@ -1,0 +1,15 @@
+{
+    "name": "akoceru/php_a2_gr1_twig",
+    "description": "WOOOHOOOP",
+    "require": {
+        "twig/twig": "~1.16"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Axel Denhaut",
+            "email": "axl.78@hotmail.fr"
+        }
+    ],
+    "minimum-stability": "stable"
+}
