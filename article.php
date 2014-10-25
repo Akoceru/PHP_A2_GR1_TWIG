@@ -4,7 +4,17 @@
  * This code is under MIT licence (see https://github.com/Irvyne/license/blob/master/MIT.md)
  */
 
+require __DIR__.'/vendor/autoload.php';
 require __DIR__.'/_header.php';
+
+Twig_Autoloader::register();
+$loader = new Twig_Loader_Filesystem([
+    __DIR__.'/views',
+]);
+
+
+
+
 
 if (!empty($_GET['id'])) {
     $id = (int) $_GET['id'];
@@ -15,7 +25,27 @@ if (!empty($_GET['id'])) {
 } else {
     header('Location: index.php');
 }
+$homeUsername = [
+    'getUsername' => getSession(),
+];
+$homeAdmin = [
+    'isAdmin' => isAdmin(),
+];
+$homeConnected = isConnected();
 
-require __DIR__.'/_footer.php';
+$homeSession = $_SESSION;
 
-include __DIR__.'/template/article.php';
+$twig = new Twig_Environment($loader,[
+//'cache' => null,
+]);
+
+echo $twig->render('article.html.twig', [
+    'article' => $article,
+    'homeUsername' => $homeUsername,
+    'homeAdmin' => $homeAdmin,
+    'homeConnected' => $homeConnected,
+    'homeSession' => $homeSession,
+
+]);
+
+

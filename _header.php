@@ -12,5 +12,19 @@ include __DIR__.'/functions/tag.fn.php';
 $config = include __DIR__.'/config/config.php';
 
 $link = getDatabaseLink($config['database']);
+require __DIR__.'/vendor/autoload.php';
+
+Twig_Autoloader::register();
+$loader = new Twig_Loader_Filesystem([
+    __DIR__.'/views',
+]);
+
+
+$twig = new Twig_Environment($loader,[
+//'cache' => null,
+]);
+
+
+
 
 session_start();
