@@ -101,4 +101,3 @@ else{
         'homeSession' => $homeSession,
     ]);
 }
-var_dump($_POST);
