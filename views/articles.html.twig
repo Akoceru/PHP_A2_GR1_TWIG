@@ -5,7 +5,7 @@
 {% block content %}
 
  {% for article in articles %}
-
+{% if article.enabled %}
 <div class="row col-lg-4"  >
 
     <article >
@@ -23,6 +23,7 @@
             </footer>
         </article>
 </div>
+{% endif %}
 {% endfor %}
 <div class="col-md-12 text-center">
     <ul class="pagination">
