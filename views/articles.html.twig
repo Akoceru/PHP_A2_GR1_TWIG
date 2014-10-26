@@ -6,9 +6,9 @@
 
  {% for article in articles %}
 
-<div class="row">
+<div class="row col-lg-4"  >
 
-    <article class=" col-lg-4">
+    <article >
         <header>
             <h1><a href="article.php?id={{ article.id }}">{{ article.title }}</a></h1>
             <img title="{{ article.title }}" alt="{{ article.title }}" src="{{ article.image }}">
@@ -24,7 +24,7 @@
         </article>
 </div>
 {% endfor %}
-
+<div class="col-md-12">
     <ul class="pagination">
         <li {% if 1 == currentPage %} class="disabled" {% endif %} ><a href="articles.php?p={{ currentPage }}">&leftarrow;</a></li>
         {% set i = 1 %}
@@ -34,7 +34,7 @@
         {% endfor %}
         <li {% if currentPage == lastPage+1 %}class="disabled"{% endif %}><a href="articles.php?p={{ currentPage+1 }}">&rightarrow;</a></li>
     </ul>
-
+    </div>
 
 
 {% endblock %}
